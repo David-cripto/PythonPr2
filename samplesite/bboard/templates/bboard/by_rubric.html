@@ -1,0 +1,23 @@
+{% extends "layout/basic.html" %}
+
+{% block title %}{{ current_rubric.name }}{% endblock %}
+
+{% block content %}
+<div class="b" id="body">
+    <ul>
+        <center><h1 style="color: black">Рубрика: {{ current_rubric.name}}</h1></center>
+        {% for bb in bbs %}
+        <li>
+            <h1 style="color: #0d4d79">{{ bb.title }}</h1>
+            {% if bb.photo %}
+                <img src="{{ MEDIA_URL }}{{ bb.photo.url }}" width="283" height="250">
+            {% endif %}
+            <p>{{ bb.content }}</p>
+            <p>{{ bb.published|date:"d.m.Y H:i:s" }}</p>
+            <a href="{% url 'by_rubric' bb.rubric.pk %}" class="readmore">{{ bb.rubric.name }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
+

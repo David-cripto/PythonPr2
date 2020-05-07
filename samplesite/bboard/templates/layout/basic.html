@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" ; charset="UTF-8">
+    <title>{% block title %}Главная{% endblock %} - Доска объявлений</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'bboard/css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'bboard/css/ie7.css' %}">
+</head>
+<body>
+<div id="page">
+    <div id="header">
+        <div><h1>Samplesite</h1></div>
+        <ul>
+            <li><a href="{% url 'index' %}"><span>Главная</span></a></li>
+            <li><a href="{% url 'add' %}"><span>Добавить</span></a></li>
+            {% for rubric in rubrics%}
+            <li><a href="{% url 'by_rubric' rubric.pk %}"><span>{{ rubric.name }}</span></a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <section>
+        {% block content %}
+        {% endblock %}
+    </section>
+
+    <div id="footer">
+        <ul>
+            <li>
+                <h3>Контакты</h3>
+                <div>
+                    <p style="font-size:15px">Почта:<br>
+                        company@email.com<br>
+                        <br>
+                    </p>
+                    <p style="font-size:15px">Телефон:<br>
+                        117-683-9187-000</p>
+                    <p style="font-size:15px">ВК <img src="{% static 'bboard/images/vk_logo.png' %}" width="15" height="15">:<br>
+                        <a href="#">#</a></p>
+                    <p>
+                    </p>
+                    <p style="font-size:15px">Instagram <img src="{% static 'bboard/images/inst_logo.png' %}" width="15" height="15">:<br>
+                        <a href="#">#</a></p>
+                </div>
+            </li>
+        </ul>
+        <div>
+            <p class="connect">Подписывайтесь: <a href="#">Instagram</a> &amp; <a href="#">ВК</a></p>
+            <p class="footnote">Copyright &copy; 2020 <a href="#">Lee David</a> All rights reserved | Website
+                Template By <a target="_blank" href="http://www.freewebsitetemplates.com/">freewebsitetemplates.com</a>
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

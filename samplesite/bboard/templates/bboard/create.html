@@ -1,0 +1,18 @@
+{% extends "layout/basic.html" %}
+
+{% block title %}Добавление объявления{% endblock %}
+
+{% block content %}
+<div class="b" id="body">
+    <ul>
+        <center><h1 style="color: #0d4d79">Добавление статьи</h1></center>
+        <form method="post"  enctype="multipart/form-data">
+            {% csrf_token %}
+            <center>
+                {{ form.as_p }}
+                <input type="submit" value="Добавить">
+            </center>
+        </form>
+    </ul>
+</div>
+{% endblock %}
