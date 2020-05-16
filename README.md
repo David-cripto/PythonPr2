@@ -1,10 +1,6 @@
 Для запуска нужно скачать:
-1) Django
-2) Pillow
-Далее в терминале надо прописать:
-python manage.py runserver
-Он выдаст отладочный веб-сервер по адресу что-то вроде:
-http://127.0.0.1:8000/
-К нему в итоге надо добавить bboard
-В итоге получится:
-http://127.0.0.1:8000/bboard/
+pip install django-bootstrap4
+pip install pillow
+pip install easy-thumbnails
+pip install django-cleanup
+

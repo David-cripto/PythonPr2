@@ -1,19 +1,29 @@
 {% extends "layout/basic.html" %}
 
+{% load thumbnail %}
+{% load static %}
+
 {% block content %}
-<div class="b" id="body">
-    <ul>
-        {% for bb in bbs %}
-        <li>
-            <h1 style="color: #0d4d79">{{ bb.title }}</h1>
-            {% if bb.photo %}
-                <img src="{{ MEDIA_URL }}{{ bb.photo.url }}" width="283" height="250">
-            {% endif %}
-            <p>{{ bb.content }}</p>
-            <p>{{ bb.published|date:"d.m.Y H:i:s" }}</p>
-            <a href="{% url 'by_rubric' bb.rubric.pk %}" class="readmore">{{ bb.rubric.name }}</a>
-        </li>
-        {% endfor %}
-    </ul>
-</div>
+{% if bbs %}
+<h2>Последние статьи</h2>
+<ul class="list-unstyled">
+    {% for bb in bbs %}
+    <li class="media my-5 p-3 border">
+        {% url 'bboard:detail' rubric_pk=bb.rubric.pk pk=bb.pk as url %}
+        <a href="{{ url }}{{ all }}">
+        {% if bb.image %}
+        <img class="mr-3" src="{% thumbnail bb.image 'default' %}">
+        {% else %}
+        <img class="mr-3" src="{% static 'bboard/empty.jpg' %}">
+        {% endif %}
+        </a>
+        <div class="media-body">
+          <h3><a href="{{ url }}{{ all }}">{{ bb.title }}</a></h3>
+          <div>{{ bb.content }}</div>
+          <p class="text-right font-italic">{{ bb.created_at }}</p>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
 {% endblock %}

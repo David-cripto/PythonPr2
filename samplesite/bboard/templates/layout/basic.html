@@ -1,57 +1,64 @@
+{% load bootstrap4 %}
 {% load static %}
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html" ; charset="UTF-8">
-    <title>{% block title %}Главная{% endblock %} - Доска объявлений</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'bboard/css/style.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'bboard/css/ie7.css' %}">
+    <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}Главная{% endblock %} - Доска публикаций</title>
+    {% bootstrap_css %}
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'bboard/style.css' %}">
+    {% bootstrap_javascript jquery='slim' %}
 </head>
-<body>
-<div id="page">
-    <div id="header">
-        <div><h1>Samplesite</h1></div>
-        <ul>
-            <li><a href="{% url 'index' %}"><span>Главная</span></a></li>
-            <li><a href="{% url 'add' %}"><span>Добавить</span></a></li>
-            {% for rubric in rubrics%}
-            <li><a href="{% url 'by_rubric' rubric.pk %}"><span>{{ rubric.name }}</span></a></li>
-            {% endfor %}
-        </ul>
-    </div>
-    <section>
-        {% block content %}
-        {% endblock %}
-    </section>
+<body class="container-fluid">
+    <header class="mb-4">
+        <h1 class="display-1 text-center">Samplesite</h1>
+    </header>
+    <div class="row">
+        <ul class="col nav justify-content-end border">
 
-    <div id="footer">
-        <ul>
-            <li>
-                <h3>Контакты</h3>
-                <div>
-                    <p style="font-size:15px">Почта:<br>
-                        company@email.com<br>
-                        <br>
-                    </p>
-                    <p style="font-size:15px">Телефон:<br>
-                        117-683-9187-000</p>
-                    <p style="font-size:15px">ВК <img src="{% static 'bboard/images/vk_logo.png' %}" width="15" height="15">:<br>
-                        <a href="#">#</a></p>
-                    <p>
-                    </p>
-                    <p style="font-size:15px">Instagram <img src="{% static 'bboard/images/inst_logo.png' %}" width="15" height="15">:<br>
-                        <a href="#">#</a></p>
+            {% if user.is_authenticated %}
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown"
+                   href="#" role="button" id="dropdownMenuLink" aria-haspopup="true"
+                   aria-expanded="false">Профиль</a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="{% url 'bboard:profile' %}">Мои статьи</a>
+                    <a class="dropdown-item" href="{% url 'bboard:profile_change' %}">Изменить личные данные</a>
+                    <a class="dropdown-item" href="{% url 'bboard:password_change' %}">Изменить пароль</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{% url 'bboard:logout' %}">Выйти</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{% url 'bboard:profile_delete' %}">Удалить</a>
                 </div>
             </li>
+            {% else %}
+            <li class="nav-item"><a class="nav-link" href="{% url 'bboard:register' %}">Регистрация</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'bboard:login' %}">Вход</a></li>
+            {% endif %}
         </ul>
-        <div>
-            <p class="connect">Подписывайтесь: <a href="#">Instagram</a> &amp; <a href="#">ВК</a></p>
-            <p class="footnote">Copyright &copy; 2020 <a href="#">Lee David</a> All rights reserved | Website
-                Template By <a target="_blank" href="http://www.freewebsitetemplates.com/">freewebsitetemplates.com</a>
-            </p>
-        </div>
     </div>
-</div>
+    <div class="row">
+        <nav class="col-md-auto nav flex-column border">
+            <a class="nav-link root" href="{% url 'bboard:index' %}">Главная</a>
+            {% for rubric in rubrics %}
+            {% ifchanged rubric.super_rubric.pk %}
+            <span class="nav-link root font-weight-bold">{{ rubric.super_rubric.name }}</span>
+            {% endifchanged %}
+            <a class="nav-link" href="{% url 'bboard:by_rubric' pk=rubric.pk %}">{{ rubric.name }}</a>
+            {% endfor %}
+            <a class="nav-link root" href="{% url 'bboard:other' page='about' %}">О сайте</a>
+        </nav>
+        <section class="col border py-2">
+            {% bootstrap_messages %}
+            {% block content %}
+            {% endblock %}
+        </section>
+    </div>
+    <footer class="mt-3">
+        <p class="text-righter font-italic">Copyright &copy; 2020 Lee David. All rights reserved</p>
+    </footer>
 </body>
 </html>
