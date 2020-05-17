@@ -52,7 +52,7 @@ def profile_bb_detail(request, pk):
     bb = get_object_or_404(Bb, pk=pk)
     ais = bb.additionalimage_set.all()
     context = {'bb': bb, 'ais': ais}
-    return render(request, 'main/profile_bb_detail.html', context)
+    return render(request, 'bboard/profile_bb_detail.html', context)
 
 
 @login_required
@@ -65,7 +65,7 @@ def profile_bb_add(request):
             if formset.is_valid():
                 formset.save()
                 messages.add_message(request, messages.SUCCESS, 'Статья добавлена')
-                return redirect('bboard: profile')
+                return redirect('bboard:profile')
     else:
         form = BbForm(initial={'author': request.user.pk})
         formset = AIFormSet()
