@@ -39,14 +39,21 @@ class RegisterUserForm(forms.ModelForm):
     def clean_password1(self):
         password1 = self.cleaned_data['password1']
         if password1:
-            password_validation.validate_password(password1)
+            try:
+                password_validation.validate_password(password1)
+            except ValidationError:
+                password1 = False
         return password1
 
     def clean(self):
         super().clean()
         password1 = self.cleaned_data['password1']
         password2 = self.cleaned_data['password2']
-        if password1 and password2 and password1 != password2:
+        if password1 == False:
+            errors = {'password1': ValidationError('Недопустимый пароль!',
+                                                   code='invalid')}
+            raise ValidationError(errors)
+        elif password1 and password2 and password1 != password2:
             errors = {'password2': ValidationError('Введенные пароли не совпадают',
                                                    code='password_mismatch')}
             raise ValidationError(errors)
@@ -63,8 +70,8 @@ class RegisterUserForm(forms.ModelForm):
 
     class Meta:
         model = AdvUser
-        fields = ('username', 'email', 'password1', 'password2', 'first_name',
-                  'last_name', 'send_messages')
+        fields = ('username', 'email', 'password1', 'password2', 'first_name', 'last_name',
+                  'send_messages')
 
 
 class ChangeUserInfoForm(forms.ModelForm):

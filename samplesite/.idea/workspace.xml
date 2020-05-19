@@ -13,7 +13,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bboard/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1128">
+            <state relative-caret-position="-1131">
               <caret line="67" column="40" selection-start-line="67" selection-start-column="40" selection-end-line="67" selection-end-column="40" />
               <folding>
                 <element signature="e#0#54#0" expanded="true" />
@@ -26,7 +26,7 @@
         <entry file="file://$PROJECT_DIR$/bboard/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="160">
-              <caret line="8" column="71" lean-forward="true" selection-start-line="8" selection-start-column="71" selection-end-line="8" selection-end-column="81" />
+              <caret line="8" column="71" selection-start-line="8" selection-start-column="71" selection-end-line="8" selection-end-column="81" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -34,11 +34,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bboard/tests.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="644">
-              <caret line="28" column="73" selection-start-line="28" selection-start-column="73" selection-end-line="28" selection-end-column="73" />
+            <state relative-caret-position="507">
+              <caret line="24" column="67" selection-start-line="24" selection-start-column="67" selection-end-line="24" selection-end-column="67" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -46,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bboard/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="23" column="102" lean-forward="true" selection-start-line="23" selection-start-column="102" selection-end-line="23" selection-end-column="114" />
+            <state relative-caret-position="686">
+              <caret line="63" column="30" lean-forward="true" selection-start-line="63" selection-start-column="30" selection-end-line="63" selection-end-column="30" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
@@ -112,8 +112,8 @@
       <find>contact</find>
       <find>main</find>
       <find>pro</find>
-      <find>profile.</find>
       <find>profile</find>
+      <find>profile.</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -145,7 +145,6 @@
         <option value="$PROJECT_DIR$/bboard/templates/bboard/index.html" />
         <option value="$PROJECT_DIR$/bboard/templates/bboard/profile.html" />
         <option value="$PROJECT_DIR$/bboard/templates/bboard/profile_bb_detail.html" />
-        <option value="$PROJECT_DIR$/bboard/forms.py" />
         <option value="$PROJECT_DIR$/bboard/templates/bboard/profile_bb_add.html" />
         <option value="$PROJECT_DIR$/bboard/urls.py" />
         <option value="$PROJECT_DIR$/bboard/templates/bboard/profile_bb_chage.html" />
@@ -153,6 +152,7 @@
         <option value="$PROJECT_DIR$/bboard/templates/bboard/profile_bb_delete.html" />
         <option value="$PROJECT_DIR$/bboard/views.py" />
         <option value="$PROJECT_DIR$/bboard/tests.py" />
+        <option value="$PROJECT_DIR$/bboard/forms.py" />
       </list>
     </option>
   </component>
@@ -477,9 +477,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/bboard/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="507">
+          <caret line="24" column="67" selection-start-line="24" selection-start-column="67" selection-end-line="24" selection-end-column="67" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/bboard/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1128">
+        <state relative-caret-position="-1131">
           <caret line="67" column="40" selection-start-line="67" selection-start-column="40" selection-end-line="67" selection-end-column="40" />
           <folding>
             <element signature="e#0#54#0" expanded="true" />
@@ -490,7 +500,7 @@
     <entry file="file://$PROJECT_DIR$/bboard/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
-          <caret line="8" column="71" lean-forward="true" selection-start-line="8" selection-start-column="71" selection-end-line="8" selection-end-column="81" />
+          <caret line="8" column="71" selection-start-line="8" selection-start-column="71" selection-end-line="8" selection-end-column="81" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
@@ -499,20 +509,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bboard/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="23" column="102" lean-forward="true" selection-start-line="23" selection-start-column="102" selection-end-line="23" selection-end-column="114" />
+        <state relative-caret-position="686">
+          <caret line="63" column="30" lean-forward="true" selection-start-line="63" selection-start-column="30" selection-end-line="63" selection-end-column="30" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bboard/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="644">
-          <caret line="28" column="73" selection-start-line="28" selection-start-column="73" selection-end-line="28" selection-end-column="73" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
